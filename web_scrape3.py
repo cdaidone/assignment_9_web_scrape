@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 html = urlopen("https://en.wikipedia.org/wiki/The_Walt_Disney_Company#Revenues")
 bsObj = BeautifulSoup(html, "html.parser")
 
-t = open("scrape_project.py", "w")
+t = open("scrape_project.txt", "w")
 
 t.write("sales_rev = [")
 

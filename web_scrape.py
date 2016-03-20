@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 html = urlopen("http://allears.net/tix/tixincrease.htm")
 bsObj = BeautifulSoup(html, "html.parser")
 
-t = open("pricetable.py", "w")
+t = open("pricetable.txt", "w")
 
 t.write("prices = [")
 
