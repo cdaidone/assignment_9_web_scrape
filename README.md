@@ -27,6 +27,7 @@ Then all table rows <tr> are found, stored, and written to the file scrape_proje
 The loop ends and the file is closed.
 
 ***STEP 3: WRITE TO CSV***
+***Note: I checked this file using Excel, where it is best viewed to a degree***
 In results3.py, this was my biggest challenge. I found error after error when trying to import the pricetable.py and scrape_project.txt so a quick solution was to copy and paste the complete dictionaries named prices and sales_rev.
 Then the file my_data.csv was opened/created, the variable writer was assigned to the function csv.writer(csvFile). csvFile is the variable for the opened file.
 A row is written for the column headers, I repeatedly got an error for .writeheaders so I resorted to .writerow.
