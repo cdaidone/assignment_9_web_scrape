@@ -1,11 +1,11 @@
-INTRODUCTION
+***INTRODUCTION***
 For this project, I wanted to scrape the data detailing the change in ticket prices at Walt Disney World since October 1971 to February 2016 and comparing it to the overall revenue for the year.
 First, I got the url for the site with the ticket data, http://allears.net/tix/tixincrease.htm, and then I got the URL for the site with the Revenue data https://en.wikipedia.org/wiki/The_Walt_Disney_Company#Revenues.
 I located the the tags I wanted to target using Developer Tools on Chrome.
 I used a virtual environment in Terminal.
 All files: web_scrape.py, pricetable.py, web_scrape3.py, scrape_project.py
 
-STEP 1: TICKET PRICE SCRAPE
+***STEP 1: TICKET PRICE SCRAPE***
 To scrape the ticket price site (web_scrape.py):
 1. Import BeautifulSoup
 2. Open URL
@@ -20,13 +20,13 @@ To scrape the ticket price site (web_scrape.py):
 11. This continues for all table entries.
 12. pricetable.py is closed.
 
-STEP 2: REVENUE SCRAPE
+***STEP 2: REVENUE SCRAPE***
 To scrape the revenue table (web_scrape3.py):
 Same as above except the dictionary name is sales_rev and it finds the table with the class "wikitable" and all table headers <th> are found then scrapped. A specific tag, sup, is also cleared before being written to the file: scrape_project.py.
 Then all table rows <tr> are found, stored, and written to the file scrape_project.py.
 The loop ends and the file is closed.
 
-STEP 3: WRITE TO CSV
+***STEP 3: WRITE TO CSV***
 In results3.py, this was my biggest challenge. I found error after error when trying to import the pricetable.py and scrape_project.txt so a quick solution was to copy and paste the complete dictionaries named prices and sales_rev.
 Then the file my_data.csv was opened/created, the variable writer was assigned to the function csv.writer(csvFile). csvFile is the variable for the opened file.
 A row is written for the column headers, I repeatedly got an error for .writeheaders so I resorted to .writerow.
@@ -35,8 +35,11 @@ The next row(s) to be written were the actual table data, originally I had price
 My solution was to call each table/dictionary seperatly like writer.writerows((prices)) and writer.writerrows((sales_rev)). This inputed the data into the CSV as I had wanted. Although the revenue data is below prices, I adjusted so that "Year" and "Revenue" appeared before their respective data.
 Finally, the file is closed and saves to my_data.csv.
 
-CHALLENGES
+***CHALLENGES***
 Another challenge was trying to preserve the order of the data, despite many articles online detailing OrderedDict, I repeatedly received errors in Terminal.
 As of right now, I have yet to figure it out, but I'm determined! Biggest problem: finding recent info since it has changed over time. A lot of it also seemed above my head in regard to understanding. If only .sort() or sorted was what I needed!
+***I've included a file that shows the OrderedDict how it was shown multiple times online, but I could never get it to work - that is result3_withorderdict.py***.
+
+I was so happy when I figured out how to get the dictionaries on the csv! It might not be in order, but I did get it there!
 
 Another bizarre problem was that .get_text() would not work in web_scrape3.py like it did in web_scrape.py, by playing around I discovered that if I moved .get_text() to where the info is actually written to the file instead when assigned to a variable, the text was grabbed.
