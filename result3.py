@@ -1,7 +1,7 @@
 import csv
-from collections import OrderedDict
 
-prices = OrderedDict[{'Oct 1971','$3.50','\xa0','\xa0','\xa0','\xa0','\xa0','General admission price at opening of Magic Kingdom',},
+
+prices = [{'Oct 1971','$3.50','\xa0','\xa0','\xa0','\xa0','\xa0','General admission price at opening of Magic Kingdom',},
 {'Feb 1972','$3.75','$.25','\xa0','\xa0','\xa0','\xa0','\xa0',},
 {'Apr 1973','$4.50','$.75','\xa0','\xa0','\xa0','\xa0','\xa0',},
 {'Jun 1974','$5.25','$.75','\xa0','\xa0','\xa0','\xa0','\xa0',},
@@ -66,7 +66,7 @@ prices = OrderedDict[{'Oct 1971','$3.50','\xa0','\xa0','\xa0','\xa0','\xa0','Gen
 {'Feb 2016','$124 Peak$110 Regular$105 Value','$19 Peak$5 Regular$0 Value','No Increase','No Increase','No Increase','No Increase','Disney goes to a tiered pricing model on one day tickets.',},
 {'\xa0','\xa0','\xa0','\xa0','\xa0','\xa0','\xa0','\xa0',},
 ]
-sales_rev = OrderedDict[{'Year:''1991','Revenue:''2,794.0'},
+sales_rev = [{'Year:''1991','Revenue:''2,794.0'},
 {'Year:''1992','Revenue:''3,306'},
 {'Year:''1993','Revenue:''3,440.7'},
 {'Year:''1994[65][66]','Revenue:''3,463.6'},
@@ -92,16 +92,14 @@ sales_rev = OrderedDict[{'Year:''1991','Revenue:''2,794.0'},
 {'Year:''2014','Revenue:''15,099'},
 ]
 
-result = OrderedDict()
+
 
 csvFile = open('my_data.csv', 'w')
 try:
     writer = csv.writer(csvFile)
     writer.writerow(['Date', '1 Day Price', '1 Day Increase', 'Annual Price', 'Annual Increase', 'Prem. Annual Price', 'Prem. Annual Increase', 'Comments', 'Revenue'])
-    for key, value in result.iteritems():
-        w.writerow([key] + value)
-    #writer.writerows((prices))
-    #writer.writerows((sales_rev))
+    writer.writerows((prices))
+    writer.writerows((sales_rev))
 finally:
     csvFile.close()
 
